@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using UltraCines.Models;
 
@@ -15,9 +16,9 @@ namespace UltraCines.Controllers
         }
         
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public JsonResult Get()
         {
-            return new string[] { "not implemented" };
+            return Json(_context.Movies.ToList());
         }
         
         [HttpPost]
